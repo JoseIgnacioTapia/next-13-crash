@@ -1,3 +1,11 @@
+type Metadata = {
+  title: string;
+};
+
+export const metadata: Metadata = {
+  title: 'About Traversy Media',
+};
+
 function AboutPage(): JSX.Element {
   return (
     <div>

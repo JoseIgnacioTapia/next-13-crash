@@ -1,3 +1,6 @@
+import React, { lazy, Suspense } from 'react';
+import Repo from '@/app/components/Repo';
+
 type RepoPageProps = {
   params: {
     name: string;
@@ -5,10 +8,13 @@ type RepoPageProps = {
 };
 
 function RepoPage({ params: { name } }: RepoPageProps): JSX.Element {
+  console.log(name);
+
   return (
     <div className="card">
-      <h2>{name}</h2>
-      <p>Repo Details</p>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Repo name={name} />
+      </Suspense>
     </div>
   );
 }

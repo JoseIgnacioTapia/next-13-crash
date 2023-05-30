@@ -104,3 +104,27 @@ export interface Repository {
   watchers: number;
   default_branch: string;
 }
+
+export interface RootObject {
+  _links: Links;
+  download_url: null | string;
+  git_url: string;
+  html_url: string;
+  name: string;
+  path: string;
+  sha: string;
+  size: number;
+  type: Type;
+  url: string;
+}
+
+export interface Links {
+  git: string;
+  html: string;
+  self: string;
+}
+
+export enum Type {
+  Dir = 'dir',
+  File = 'file',
+}

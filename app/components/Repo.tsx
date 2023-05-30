@@ -35,10 +35,6 @@ function Repo({ name }: RepoProps): JSX.Element {
     fetchData();
   }, [name]);
 
-  if (!repo) {
-    return <LoadingPage />;
-  }
-
   return (
     <>
       <h2>{repo?.name}</h2>

@@ -1,8 +1,7 @@
 "use client";
 import Link from "next/link";
-import { useEffect, useState } from "react";
 
-interface Course {
+export interface Course {
   id: string;
   title: string;
   description: string;
@@ -10,34 +9,12 @@ interface Course {
   level: string;
 }
 
-type CourseArray = Course[];
+export type CourseArray = Course[];
 
-async function fetchCourses(): Promise<CourseArray> {
-  const response = await fetch("http://localhost:3000/api/courses");
-  const courses = await response.json();
-  return courses;
-}
-
-function Courses(): JSX.Element {
-  const [coursesArr, setCoursesArr] = useState<CourseArray | null>(null);
-
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const courses = await fetchCourses();
-        console.log(courses);
-        setCoursesArr(courses);
-      } catch (error) {
-        console.error(error);
-      }
-    }
-
-    fetchData();
-  }, []);
-
+function Courses({ courses }: { courses: CourseArray }): JSX.Element {
   return (
     <div className="courses">
-      {coursesArr?.map((course) => (
+      {courses.map((course: Course) => (
         <div key={course.id} className="card">
           <h2>{course.title}</h2>
           <small>Level: {course.level}</small>

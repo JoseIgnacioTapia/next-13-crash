@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 interface Course {
-  id: number;
+  id: string;
   title: string;
   description: string;
   link: string;

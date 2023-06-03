@@ -1,9 +1,9 @@
-'use client';
-import { useState, useEffect } from 'react';
-import Link from 'next/link';
-import { FaStar, FaCodeBranch, FaEye } from 'react-icons/fa';
-import { Repository } from '@/APITypes/types';
-import LoadingPage from '../loading';
+"use client";
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import { FaStar, FaCodeBranch, FaEye } from "react-icons/fa";
+import { Repository } from "@/APITypes/types";
+import LoadingPage from "../loading";
 
 async function fetchRepo(name: string): Promise<Repository> {
   const response = await fetch(
@@ -25,7 +25,6 @@ function Repo({ name }: RepoProps): JSX.Element {
     async function fetchData() {
       try {
         const repoData = await fetchRepo(name);
-        console.log(repo);
         setRepo(repoData);
       } catch (error) {
         console.error(error);
